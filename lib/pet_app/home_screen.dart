@@ -23,13 +23,14 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           SizedBox(height: 45),
+          ///Customized AppBar
           Container(
             margin: EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
-                  icon: Icon(Icons.menu),
+                  icon: Icon(isdrawer ? Icons.arrow_back : Icons.menu),
                   onPressed: () {
                     setState(() {
                       xoffset = isdrawer ? 0 : 230;
@@ -59,6 +60,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 CircleAvatar(),
               ],
+            ),
+          ),
+          Container(
+            child: TextField(
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.green),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
             ),
           )
         ],
