@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contact_us/pet_app/detailed_screen.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'configuration.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,10 +19,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return AnimatedContainer(
       transform: Matrix4.translationValues(xoffset, yoffset, 0)
         ..scale(scaleFactor),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(isdrawer ? 20 : 0),
+        color: Colors.white,
+      ),
       duration: Duration(
         milliseconds: 250,
       ),
-      color: Colors.white,
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -154,15 +158,72 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       )),
                       Expanded(
-                          child: Container(
-                        margin: EdgeInsets.only(top: 60, bottom: 20),
-                        decoration: BoxDecoration(
+                        child: Container(
+                          margin: EdgeInsets.only(top: 60, bottom: 20),
+                          decoration: BoxDecoration(
                             color: Colors.white,
                             boxShadow: listShadow,
                             borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(20),
-                                bottomRight: Radius.circular(20))),
-                      ))
+                              topRight: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              left: 10.0,
+                              right: 1.0,
+                              top: 25,
+                              bottom: 25,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text('Animal bread',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black87,
+                                        )),
+                                    Icon(
+                                      FontAwesomeIcons.female,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Animal bread',
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      '2 year old',
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.location_on,
+                                      color: primaryColor,
+                                    ),
+                                    Text(
+                                      'Distance: 3.6 km',
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   )),
             ),
@@ -189,15 +250,72 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     )),
                     Expanded(
-                        child: Container(
-                      margin: EdgeInsets.only(top: 60, bottom: 20),
-                      decoration: BoxDecoration(
+                      child: Container(
+                        margin: EdgeInsets.only(top: 60, bottom: 20),
+                        decoration: BoxDecoration(
                           color: Colors.white,
                           boxShadow: listShadow,
                           borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              bottomRight: Radius.circular(20))),
-                    ))
+                            topRight: Radius.circular(20),
+                            bottomRight: Radius.circular(20),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 10.0,
+                            right: 1.0,
+                            top: 25,
+                            bottom: 25,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Animal bread',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black87,
+                                      )),
+                                  Icon(
+                                    FontAwesomeIcons.female,
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    'Animal bread',
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    '2 year old',
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.location_on,
+                                    color: primaryColor,
+                                  ),
+                                  Text(
+                                    'Distance: 3.6 km',
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
                   ],
                 )),
           ],
