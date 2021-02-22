@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import  'configuration.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -23,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           SizedBox(height: 45),
+
           ///Customized AppBar
           Container(
             margin: EdgeInsets.symmetric(horizontal: 20),
@@ -40,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       isdrawer = !isdrawer;
                     });
                   },
-                ),
+                 ),
                 Column(
                   children: [
                     Text('Location'),
@@ -49,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         IconButton(
                           icon: Icon(
                             Icons.location_on,
-                            color: Colors.green,
+                            color: primaryColor,
                           ),
                           onPressed: () {},
                         ),
@@ -62,14 +64,54 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+          /// Search Bar
           Container(
-            child: TextField(
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.green),
-                  borderRadius: BorderRadius.circular(30),
-                ),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(40.0,10.0,40.0,10.0  ),
+              child: TextField(
+                decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: primaryColor),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: primaryColor),
+                    ),
+                    prefixIcon: Icon(Icons.search, color: primaryColor),
+                    hintText: 'Search Pet',
+                    filled: true,
+                    fillColor: Colors.grey.shade200),
               ),
+            ),
+          ),
+          Container(
+            height:120,
+            // padding: EdgeInsets.only(left: ),
+            child: ListView.builder(
+
+              scrollDirection: Axis.horizontal,
+              itemCount: categories.length,
+              itemBuilder: (context, index){
+                return Container(
+                  child: Column(
+
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        margin: EdgeInsets.only(left: 15),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: listShadow,
+                          borderRadius: BorderRadius.circular(10)
+                        ),
+                        child: Image.asset(categories[index]['iconPath'],height: 50,width: 50,),
+                      ),
+                      Text(categories[index]['name'])
+                    ],
+                  ),
+                );
+              },
             ),
           )
         ],
