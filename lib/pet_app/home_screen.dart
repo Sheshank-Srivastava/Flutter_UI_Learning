@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contact_us/pet_app/detailed_screen.dart';
-import  'configuration.dart';
+import 'configuration.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         isdrawer = !isdrawer;
                       });
                     },
-                   ),
+                  ),
                   Column(
                     children: [
                       Text('Location'),
@@ -66,10 +66,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+
             /// Search Bar
             Container(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(40.0,10.0,40.0,10.0  ),
+                padding: const EdgeInsets.fromLTRB(40.0, 10.0, 40.0, 10.0),
                 child: TextField(
                   decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -90,26 +91,27 @@ class _HomeScreenState extends State<HomeScreen> {
 
             /// Animate Outlined icon list view
             Container(
-              height:120,
+              height: 120,
               // padding: EdgeInsets.only(left: ),
               child: ListView.builder(
-
                 scrollDirection: Axis.horizontal,
                 itemCount: categories.length,
-                itemBuilder: (context, index){
+                itemBuilder: (context, index) {
                   return Container(
                     child: Column(
-
                       children: [
                         Container(
                           padding: EdgeInsets.all(10),
                           margin: EdgeInsets.only(left: 15),
                           decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: listShadow,
-                            borderRadius: BorderRadius.circular(10)
+                              color: Colors.white,
+                              boxShadow: listShadow,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Image.asset(
+                            categories[index]['iconPath'],
+                            height: 50,
+                            width: 50,
                           ),
-                          child: Image.asset(categories[index]['iconPath'],height: 50,width: 50,),
                         ),
                         Text(categories[index]['name'])
                       ],
@@ -122,93 +124,82 @@ class _HomeScreenState extends State<HomeScreen> {
             /**
              * Note: Make list View for this
              */
+
             ///Row one of the last items of design
             GestureDetector(
-              onTap: (){
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>DetailedScreen()));
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => DetailedScreen()));
               },
               child: Container(
-                height: 240,
-                margin: EdgeInsets.symmetric(horizontal: 20),
-
-                child:Row(
-                  children: [
-                    Expanded(
-                      child:Stack(
+                  height: 240,
+                  margin: EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    children: [
+                      Expanded(
+                          child: Stack(
                         children: [
                           Container(
-
                             decoration: BoxDecoration(
-                              color:Colors.blueGrey,
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: listShadow
-                            ),
+                                color: Colors.blueGrey,
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: listShadow),
                             margin: EdgeInsets.only(top: 40),
                           ),
                           Align(
-                            child: Image.asset('images/pet-cat2.png'),
+                            child: Hero(
+                                tag: 1,
+                                child: Image.asset('images/pet-cat2.png')),
                           )
                         ],
-                      )
-                    ),
-                    Expanded(
-                        child:Container(
-                          margin: EdgeInsets.only(top:60,bottom: 20),
-                          decoration: BoxDecoration(
+                      )),
+                      Expanded(
+                          child: Container(
+                        margin: EdgeInsets.only(top: 60, bottom: 20),
+                        decoration: BoxDecoration(
                             color: Colors.white,
                             boxShadow: listShadow,
                             borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              bottomRight: Radius.circular(20)
-                            )
-                          ),
-                        )
-                    )
-                  ],
-                )
-              ),
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20))),
+                      ))
+                    ],
+                  )),
             ),
+
             ///Row two of the last items of design
             Container(
-              height: 240,
-              margin: EdgeInsets.symmetric(horizontal: 20),
-
-              child:Row(
-                children: [
-                  Expanded(
-                    child:Stack(
+                height: 240,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: Stack(
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            color:Colors.orangeAccent,
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: listShadow
-                          ),
+                              color: Colors.orangeAccent,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: listShadow),
                           margin: EdgeInsets.only(top: 40),
                         ),
                         Align(
                           child: Image.asset('images/pet-cat1.png'),
                         )
                       ],
-                    )
-                  ),
-                  Expanded(
-                      child:Container(
-                        margin: EdgeInsets.only(top:60,bottom: 20),
-                        decoration: BoxDecoration(
+                    )),
+                    Expanded(
+                        child: Container(
+                      margin: EdgeInsets.only(top: 60, bottom: 20),
+                      decoration: BoxDecoration(
                           color: Colors.white,
                           boxShadow: listShadow,
                           borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(20),
-                            bottomRight: Radius.circular(20)
-                          )
-                        ),
-                      )
-                  )
-                ],
-              )
-            ),
-
+                              topRight: Radius.circular(20),
+                              bottomRight: Radius.circular(20))),
+                    ))
+                  ],
+                )),
           ],
         ),
       ),
