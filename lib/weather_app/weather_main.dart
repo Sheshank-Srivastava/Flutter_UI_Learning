@@ -6,7 +6,10 @@ class WeatherApp extends StatelessWidget {
     return MaterialApp(
       home: Container(
         decoration:BoxDecoration(
-
+            image: DecorationImage(
+              image: AssetImage('images/clear.png'),
+              fit: BoxFit.cover
+            )
         )
 
       ),
