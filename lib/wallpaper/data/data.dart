@@ -1,5 +1,8 @@
 import 'package:flutter_contact_us/wallpaper/model/categories_model.dart';
 
+String apiKey='563492ad6f917000010000017b86ec3d37314634beef09bb23237a31';
+String mostTrendingImageUrl ='https://api.pexels.com/v1/curated?per_page=15&page=1';
+
 List<CategoriesModel> getCategories() {
   List<CategoriesModel> categories = new List();
 
