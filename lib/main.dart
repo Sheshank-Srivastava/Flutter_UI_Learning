@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_contact_us/weather_app/weather_main.dart';
+import 'package:flutter_contact_us/wallpaper/WallpaperHome.dart';
 
 void main() {
-  runApp(WeatherApp());
+  runApp(Home());
 }
