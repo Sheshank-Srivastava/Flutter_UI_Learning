@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_contact_us/wallpaper/categories.dart';
 import 'package:flutter_contact_us/wallpaper/data/data.dart';
 import 'package:flutter_contact_us/wallpaper/model/categories_model.dart';
 import 'package:flutter_contact_us/wallpaper/model/wallpaper_model.dart';
+import 'package:flutter_contact_us/wallpaper/search.dart';
 import 'package:flutter_contact_us/wallpaper/widget/widget.dart';
 import 'package:http/http.dart' as http;
 
@@ -26,6 +28,8 @@ class WallpaperHome extends StatefulWidget {
 class _WallpaperHomeState extends State<WallpaperHome> {
   List<CategoriesModel> categoriesData;
   List<WallpaperModel> wallpapers = new List();
+
+  TextEditingController searchController = new TextEditingController();
 
   @override
   void initState() {
@@ -73,12 +77,27 @@ class _WallpaperHomeState extends State<WallpaperHome> {
                   children: [
                     Expanded(
                       child: TextField(
+                        controller: searchController,
                         decoration: InputDecoration(
                             hintText: 'search wallpapers',
                             border: InputBorder.none),
                       ),
                     ),
-                    Icon(Icons.search)
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Search(
+                              searchQuery: searchController.text,
+                            ),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        child: Icon(Icons.search),
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -109,7 +128,7 @@ class _WallpaperHomeState extends State<WallpaperHome> {
               SizedBox(
                 height: 16,
               ),
-            wallpapersList(wallpapers: wallpapers,context: context),
+              wallpapersList(wallpapers: wallpapers, context: context),
             ],
           ),
         ),
@@ -128,7 +147,10 @@ class CategoriesTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context,MaterialPageRoute(builder: (context)=>Category(title.toLowerCase())));
+      },
       child: Container(
         margin: EdgeInsets.only(right: 8),
         child: Stack(
