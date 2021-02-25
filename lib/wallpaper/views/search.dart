@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_contact_us/wallpaper/widget/widget.dart';
 import 'package:http/http.dart' as http;
 
-import 'data/data.dart';
-import 'model/wallpaper_model.dart';
+import '../data/data.dart';
+import '../model/wallpaper_model.dart';
 
 class Search extends StatefulWidget {
   final String searchQuery;

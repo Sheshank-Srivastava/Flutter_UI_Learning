@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_contact_us/wallpaper/categories.dart';
+import 'package:flutter_contact_us/wallpaper/views/categories.dart';
 import 'package:flutter_contact_us/wallpaper/data/data.dart';
 import 'package:flutter_contact_us/wallpaper/model/categories_model.dart';
 import 'package:flutter_contact_us/wallpaper/model/wallpaper_model.dart';
-import 'package:flutter_contact_us/wallpaper/search.dart';
+import 'package:flutter_contact_us/wallpaper/views/search.dart';
 import 'package:flutter_contact_us/wallpaper/widget/widget.dart';
 import 'package:http/http.dart' as http;
 

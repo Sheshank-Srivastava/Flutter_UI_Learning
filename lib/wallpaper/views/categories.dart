@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_contact_us/wallpaper/widget/widget.dart';
 
-import 'data/data.dart';
+import '../data/data.dart';
 import 'package:http/http.dart' as http;
 
-import 'model/wallpaper_model.dart';
+import '../model/wallpaper_model.dart';
 
 class Category extends StatefulWidget {
   final String categoryName;
